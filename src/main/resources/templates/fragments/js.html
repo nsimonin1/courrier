@@ -1,0 +1,23 @@
+<!DOCTYPE html >
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="js">
+    <!-- jQuery -->
+    <script th:src="@{bower_components/jquery/dist/jquery.min.js}" src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script th:src="@{bower_components/bootstrap/dist/js/bootstrap.min.js}" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script th:src="@{bower_components/metisMenu/dist/metisMenu.min.js}" src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+</th:block>
+
+<th:block th:fragment="commons">
+    <script th:src="@{dist/js/sb-admin-2.js}"  src="../dist/js/sb-admin-2.js"></script>
+</th:block>
+
+</html>
