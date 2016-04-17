@@ -12,10 +12,10 @@
 
 
     <!-- DataTables CSS -->
-    <link th:href="@{bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css}" href="../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet"/>
+    <link th:href="@{/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css}" href="../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet"/>
 
     <!-- DataTables Responsive CSS -->
-    <link th:href="@{bower_components/datatables-responsive/css/dataTables.responsive.css}" href="../bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet"/>
+    <link th:href="@{/bower_components/datatables-responsive/css/dataTables.responsive.css}" href="../bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet"/>
 
 
 
@@ -26,7 +26,7 @@
 <div id="wrapper">
 
     <!-- Navigation -->
-    <th:block th:include="fragments/navbar::navbar"></th:block>
+    <th:block th:include="fragments/navbardemo::navbardemo"></th:block>
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
@@ -772,8 +772,8 @@
 <th:block th:include="fragments/js::js"></th:block>
 
 <!-- DataTables JavaScript -->
-<script th:src="@{bower_components/datatables/media/js/jquery.dataTables.min.js}" src="../bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-<script th:src="@{bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js}" src="../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+<script th:src="@{/bower_components/datatables/media/js/jquery.dataTables.min.js}" src="../bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+<script th:src="@{/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js}" src="../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <th:block th:include="fragments/js::commons"></th:block>
