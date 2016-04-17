@@ -22,10 +22,15 @@ spring:
         generate-ddl: false
         properties:
             hibernate:
+                cache:
+                   use_second_level_cache: true
+                   use_query_cache: false
+                   region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
                 dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+                generate_statistics: true
 
         hibernate:
-            ddl-auto: none
+            ddl-auto: update
             naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
 
     jmx:
@@ -40,9 +45,37 @@ spring:
         exclude: templates/**
         enabled: true
 
+
+
+
+
+
 server:
   port: 8084
   context-path: /courrier
 
+# ===================================================================
+# JHipster specific properties
+# ===================================================================
 
-
+courrier:
+    cache: # Hibernate 2nd level cache, used by CacheConfiguration
+            timeToLiveSeconds: 3600
+            ehcache:
+                maxBytesLocalHeap: 16M
+    async:
+        corePoolSize: 2
+        maxPoolSize: 50
+        queueCapacity: 10000
+    mail:
+        from: hello@localhost
+    swagger:
+        title: hello API
+        description: hello API documentation
+        version: 0.0.1
+        termsOfServiceUrl:
+        contactName:
+        contactUrl:
+        contactEmail:
+        license:
+        licenseUrl:

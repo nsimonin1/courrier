@@ -2,7 +2,8 @@
 SQLyog Ultimate v11.5 (64 bit)
 MySQL - 5.7.11-log : Database - courrierdb
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -41,7 +42,7 @@ CREATE TABLE `t_user` (
   UNIQUE KEY `UK_7gshuknepkj6oy1702fqwsr8r` (`login`),
   UNIQUE KEY `UK_i6qjjoe560mee5ajdg7v1o6mi` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
+ALTER TABLE courrierdb.t_user CHANGE password password_hash VARCHAR(60) NOT NULL;
 /*Data for the table `t_user` */
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
