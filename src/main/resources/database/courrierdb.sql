@@ -2,8 +2,7 @@
 SQLyog Ultimate v11.5 (64 bit)
 MySQL - 5.7.11-log : Database - courrierdb
 *********************************************************************
-*/
-
+*/
 
 /*!40101 SET NAMES utf8 */;
 
@@ -16,6 +15,17 @@ MySQL - 5.7.11-log : Database - courrierdb
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`courrierdb` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
 USE `courrierdb`;
+
+/*Table structure for table `t_authority` */
+
+DROP TABLE IF EXISTS `t_authority`;
+
+CREATE TABLE `t_authority` (
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_authority` */
 
 /*Table structure for table `t_user` */
 
@@ -35,15 +45,30 @@ CREATE TABLE `t_user` (
   `lang_key` varchar(5) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   `login` varchar(50) NOT NULL,
-  `password` varchar(60) NOT NULL,
+  `password_hash` varchar(60) NOT NULL,
   `reset_date` datetime DEFAULT NULL,
   `reset_key` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_7gshuknepkj6oy1702fqwsr8r` (`login`),
   UNIQUE KEY `UK_i6qjjoe560mee5ajdg7v1o6mi` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-ALTER TABLE courrierdb.t_user CHANGE password password_hash VARCHAR(60) NOT NULL;
+
 /*Data for the table `t_user` */
+
+/*Table structure for table `t_utilisateur_authority` */
+
+DROP TABLE IF EXISTS `t_utilisateur_authority`;
+
+CREATE TABLE `t_utilisateur_authority` (
+  `user_id` bigint(20) NOT NULL,
+  `authority_name` varchar(50) NOT NULL,
+  PRIMARY KEY (`user_id`,`authority_name`),
+  KEY `FK_qqr66m9rv8wi66gwf5f0jjof1` (`authority_name`),
+  CONSTRAINT `FK_7ftgojxgjcnc7yk5rimyval1v` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`id`),
+  CONSTRAINT `FK_qqr66m9rv8wi66gwf5f0jjof1` FOREIGN KEY (`authority_name`) REFERENCES `t_authority` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_utilisateur_authority` */
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
